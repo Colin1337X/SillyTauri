@@ -1,0 +1,38 @@
+[package]
+name = "sillytauri"
+version = "1.18.0"
+description = "SillyTavern as a Tauri desktop and mobile app"
+authors = ["SillyTauri Contributors"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zip = "2"
+tokio = { version = "1", features = ["full"] }
+portpicker = "0.1"
+reqwest = "0.12"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-single-instance = "2"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[lib]
+name = "sillytauri_lib"
+crate-type = ["staticlib", "cdylib", "lib"]

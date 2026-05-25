@@ -58,3 +58,8 @@ public/scripts/extensions/third-party
 yarn.lock
 *.code-workspace
 test-results/
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/
+src-tauri/dist/

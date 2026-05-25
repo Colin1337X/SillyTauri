@@ -128,7 +128,13 @@
         "lint": "eslint \"src/**/*.js\" \"public/**/*.js\" ./*.js",
         "lint:fix": "eslint \"src/**/*.js\" \"public/**/*.js\" ./*.js --fix",
         "plugins:update": "node plugins update",
-        "plugins:install": "node plugins install"
+        "plugins:install": "node plugins install",
+        "tauri": "cargo tauri",
+        "tauri:dev": "cargo tauri dev",
+        "tauri:build": "cargo tauri build",
+        "tauri:android:init": "cargo tauri android init",
+        "tauri:android:dev": "cargo tauri android dev",
+        "tauri:android:build": "cargo tauri android build"
     },
     "bin": {
         "sillytavern": "./src/server-global.js"
